@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2026 at 10:05 AM
+-- Generation Time: Mar 20, 2026 at 10:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -41,7 +41,6 @@ CREATE TABLE `businesses` (
 --
 
 INSERT INTO `businesses` (`id`, `name`, `address`, `phone`, `email`, `created_at`) VALUES
-(1, 'Nadsoft2', 'NADSOFT, 173, Nalin Chambers on Second Floor, Dholepatill Road, OR, near Kapila Hotel, near ganpati temple, Pune, Maharashtra 411001, India, Pune', '918087429395', 'recurit@nedsoftdev.com', '2026-03-20 07:23:16'),
 (2, 'Tech Solutions Pvt Ltd', 'Hinjewadi Phase 1, Pune', '9876543210', 'contact@techsolutions.com', '2026-03-20 07:23:16'),
 (3, 'Green Leaf Cafe', 'Baner Road, Pune', '9123456780', 'hello@greenleaf.com', '2026-03-20 07:23:16'),
 (4, 'Fitness Hub Gym', 'Wakad, Pune', '9988776655', 'info@fitnesshub.com', '2026-03-20 07:23:16'),
@@ -63,6 +62,13 @@ CREATE TABLE `ratings` (
   `rating` decimal(2,1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `business_id`, `name`, `email`, `phone`, `rating`, `created_at`) VALUES
+(1, 2, 'shayam', 'shayam@gmail.com', '786786788', 2.5, '2026-03-20 09:38:13');
 
 --
 -- Indexes for dumped tables
@@ -95,7 +101,7 @@ ALTER TABLE `businesses`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
