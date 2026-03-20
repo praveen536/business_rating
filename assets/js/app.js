@@ -41,9 +41,12 @@ $(document).ready(function () {
             $('#tableBody').html(html);
 
             $('.raty').raty({
-                readOnly: true,
+                readOnly: false,
                 half: true,
-                score: function () { return $(this).attr('data-score'); },
+                path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.1/images',
+                score: function () {
+                    return $(this).attr('data-score');
+                },
                 click: function (score) {
                     $('#business_id').val($(this).data('id'));
                     $('#ratingInput').raty('score', score);
@@ -130,11 +133,17 @@ $(document).ready(function () {
             .done(function () { showToast('Deleted'); loadBusinesses(); })
             .always(() => toggleLoader(false));
     };
+    $('#ratingInput').raty({
+        half: true,
+        scoreName: 'rating',
+        path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.1/images'
+    });
 
+    $('#ratingModal').on('hidden.bs.modal', function () {
+        loadBusinesses();
+    });
     // initial load (ONLY ONCE)
-    loadBusinesses();   
-    // init rating input once
-    $('#ratingInput').raty({ half: true, scoreName: 'rating' });
+    loadBusinesses();
 
 
 });
