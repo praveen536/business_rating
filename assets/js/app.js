@@ -1,6 +1,3 @@
-// =========================
-// 8. assets/js/app.js (FINAL CLEAN - SINGLE BLOCK)
-// =========================
 $(document).ready(function () {
 
     function showToast(msg, type = "success") {
